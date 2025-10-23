@@ -56,7 +56,7 @@ window.addEventListener('scroll', () => {
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-    
+
     let current = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
@@ -84,31 +84,31 @@ const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         // Get form data
         const formData = new FormData(this);
         const name = formData.get('name');
         const email = formData.get('email');
         const subject = formData.get('subject');
         const message = formData.get('message');
-        
+
         // Simple validation
         if (!name || !email || !subject || !message) {
             showNotification('Please fill in all fields.', 'error');
             return;
         }
-        
+
         if (!isValidEmail(email)) {
             showNotification('Please enter a valid email address.', 'error');
             return;
         }
-        
+
         // Show loading state
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
-        
+
         // Send email using EmailJS
         emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
             from_name: name,
@@ -146,7 +146,7 @@ function showNotification(message, type = 'info') {
     if (existingNotification) {
         existingNotification.remove();
     }
-    
+
     // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
@@ -156,7 +156,7 @@ function showNotification(message, type = 'info') {
             <button class="notification-close">&times;</button>
         </div>
     `;
-    
+
     // Add styles
     notification.style.cssText = `
         position: fixed;
@@ -171,17 +171,17 @@ function showNotification(message, type = 'info') {
         animation: slideInRight 0.3s ease-out;
         max-width: 400px;
     `;
-    
+
     // Add to document
     document.body.appendChild(notification);
-    
+
     // Close button functionality
     const closeBtn = notification.querySelector('.notification-close');
     closeBtn.addEventListener('click', () => {
         notification.style.animation = 'slideOutRight 0.3s ease-out';
         setTimeout(() => notification.remove(), 300);
     });
-    
+
     // Auto remove after 5 seconds
     setTimeout(() => {
         if (notification.parentNode) {
@@ -204,7 +204,7 @@ notificationStyles.textContent = `
             transform: translateX(0);
         }
     }
-    
+
     @keyframes slideOutRight {
         from {
             opacity: 1;
@@ -215,14 +215,14 @@ notificationStyles.textContent = `
             transform: translateX(100%);
         }
     }
-    
+
     .notification-content {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
     }
-    
+
     .notification-close {
         background: none;
         border: none;
@@ -234,7 +234,7 @@ notificationStyles.textContent = `
         opacity: 0.8;
         transition: opacity 0.3s ease;
     }
-    
+
     .notification-close:hover {
         opacity: 1;
     }
@@ -267,18 +267,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Typing animation for hero title
 function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
+    // For now, let's disable the typewriter animation to fix the HTML rendering issue
+    // and just show the content immediately with a fade-in effect
+    element.innerHTML = text;
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(20px)';
+
+    setTimeout(() => {
+        element.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0)';
+    }, 100);
 }
 
 // Initialize typing animation when page loads
@@ -312,7 +311,7 @@ loadingStyles.textContent = `
         opacity: 0;
         transition: opacity 0.5s ease-in-out;
     }
-    
+
     body.loaded {
         opacity: 1;
     }
