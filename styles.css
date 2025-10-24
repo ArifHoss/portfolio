@@ -487,6 +487,99 @@ section {
     font-weight: 500;
 }
 
+/* Languages Section */
+.languages {
+    background: #f8f9fa;
+}
+
+.languages-content {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.language-item {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+    text-align: center;
+    min-width: 200px;
+}
+
+.language-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.language-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+}
+
+.proficiency {
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Fun Facts Section */
+.fun-facts {
+    background: #fff;
+}
+
+.fun-facts-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.fun-fact-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.fun-fact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.fun-fact-icon {
+    width: 60px;
+    height: 60px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.fun-fact-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+}
+
+.fun-fact-content p {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
 /* Experience Section */
 .experience {
     background: #fff;
@@ -782,6 +875,20 @@ section {
 
     .timeline-marker {
         left: 5px;
+    }
+
+    .languages-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .fun-facts-content {
+        grid-template-columns: 1fr;
+    }
+
+    .fun-fact-card {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
