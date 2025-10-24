@@ -35,8 +35,8 @@
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Hi, I'm <span class="highlight">Arif Hossain</span></h1>
-                <p class="hero-subtitle">Full-Stack Developer & Java Developer</p>
+                <h1 class="hero-title">Full-Stack Developer & Java Developer</h1>
+               <!-- <p class="hero-subtitle">Full-Stack Developer & Java Developer</p> -->
                 <p class="hero-description">
                     I am a passionate Full-Stack Developer with expertise in Java and Frontend Development. 
                     I enjoy building modern web applications using JavaScript, React, and Vue.js. 
@@ -135,23 +135,20 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
+            <div class="projects-grid" id="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
                         <i class="fas fa-tv"></i>
                     </div>
                     <div class="project-content">
                         <h3>Swedish Media Annotation Platform</h3>
-                        <p>Enterprise-level full-stack application with microservices architecture for annotating Swedish TV/radio content. Features complex database relationships, RESTful APIs, analytics dashboards with data visualization, Docker containerization, and automated speech recognition workflows. Built with React 19/TypeScript frontend, Spring Boot 3.5 REST API, and PostgreSQL with JPA/Hibernate ORM.</p>
+                        <p>Enterprise-level full-stack application with microservices architecture for annotating Swedish TV/radio content. Features complex database relationships, RESTful APIs, analytics dashboards with data visualization, Docker containerization, and automated speech recognition workflows.</p>
                         <div class="project-tech">
                             <span class="tech-tag">React 19</span>
                             <span class="tech-tag">TypeScript</span>
                             <span class="tech-tag">Spring Boot 3.5</span>
                             <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">JPA/Hibernate</span>
                             <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Microservices</span>
-                            <span class="tech-tag">Data Analytics</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
@@ -200,6 +197,7 @@
                     </div>
                 </div>
             </div>
+            <button class="show-more-btn" id="show-more-projects">Show More Projects</button>
         </div>
     </section>
 
@@ -207,14 +205,16 @@
     <section id="education" class="education">
         <div class="container">
             <h2 class="section-title">Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+            <div class="education-grid" id="education-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="project-content">
                         <h3>Engineer's Degree, Frontend Developer</h3>
                         <h4>IT-Högskolan</h4>
                         <span class="timeline-date">Aug 2024 - Jul 2026</span>
-                        <p>Currently pursuing a comprehensive frontend developer course covering HTML, CSS, JavaScript, UX/UI design, Vue.js, React.js, Node.js, and Agile development. Developing skills in building component-based web applications, managing state (Vuex, Context API, Redux), and implementing routing (Vue Router, React Router). Gaining experience in full stack development, designing databases, handling CRUD operations, and ensuring data integrity. Proficient in working with CMS platforms (WordPress, Drupal), Headless CMS integration, and PHP-based customization. Building expertise in UX/UI design with a focus on user-friendly, accessible solutions.</p>
+                        <p>Currently pursuing a comprehensive frontend developer course covering HTML, CSS, JavaScript, UX/UI design, Vue.js, React.js, Node.js, and Agile development.</p>
                         <div class="education-skills">
                             <span class="skill-tag">HTML</span>
                             <span class="skill-tag">CSS</span>
@@ -222,19 +222,19 @@
                             <span class="skill-tag">Vue.js</span>
                             <span class="skill-tag">React.js</span>
                             <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">UX/UI Design</span>
-                            <span class="skill-tag">WordPress</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="project-content">
                         <h3>Engineer's Degree, Full Stack Java Developer</h3>
                         <h4>IT-Högskolan</h4>
                         <span class="timeline-date">Nov 2020 - Nov 2022</span>
-                        <p>Completed a full-stack Java developer program covering Java programming, tools, and environments, database development, web services and integration, web application development, Agile methodologies, Clean Code practices, and testing. Developed advanced skills in complex Java programming, utilizing Java EE, Spring, and Spring Boot. Gained hands-on experience with build and deployment tools like Maven, Docker, and Jenkins, as well as databases such as MySQL and PostgreSQL. Successfully completed two internships (LIA1, LIA2), applying acquired skills in real-world development environments.</p>
+                        <p>Completed a full-stack Java developer program covering Java programming, tools, and environments, database development, web services and integration, web application development, Agile methodologies, Clean Code practices, and testing.</p>
                         <div class="education-skills">
                             <span class="skill-tag">Java</span>
                             <span class="skill-tag">Spring Boot</span>
@@ -242,12 +242,11 @@
                             <span class="skill-tag">Docker</span>
                             <span class="skill-tag">CI/CD</span>
                             <span class="skill-tag">TDD</span>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">PostgreSQL</span>
                         </div>
                     </div>
                 </div>
             </div>
+            <button class="show-more-btn" id="show-more-education">Show More Details</button>
         </div>
     </section>
 
@@ -255,30 +254,36 @@
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title">Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+            <div class="experience-grid" id="experience-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <div class="project-content">
                         <h3>Full-Stack Developer Intern</h3>
                         <h4>SVT (Sveriges Television)</h4>
                         <span class="timeline-date">Aug 2024 - May 2025</span>
-                        <p>Developing enterprise-level Swedish Media Annotation Platform with microservices architecture. Implementing complex database relationships with PostgreSQL and JPA/Hibernate, building RESTful APIs with Spring Boot 3.5, and creating React 19/TypeScript frontend with analytics dashboards. Features include automated speech recognition workflows, speaker demographic analysis, Word Error Rate calculations, and Docker containerization for scalable deployment.</p>
+                        <p>Developing enterprise-level Swedish Media Annotation Platform with microservices architecture. Implementing complex database relationships with PostgreSQL and JPA/Hibernate, building RESTful APIs with Spring Boot 3.5, and creating React 19/TypeScript frontend with analytics dashboards.</p>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="project-content">
                         <h3>Full-Stack Developer</h3>
                         <h4>Experis Academy</h4>
                         <span class="timeline-date">Jan 2023 - Jun 2023</span>
-                        <p>Developed "Project Lagalt" - a web platform for creative professionals using Java, Spring Boot, and React. Led backend development, integrated OAuth for user registration, managed privacy settings, and enhanced frontend with responsive design. Successfully presented to 47 developers and stakeholders.</p>
+                        <p>Developed "Project Lagalt" - a web platform for creative professionals using Java, Spring Boot, and React. Led backend development, integrated OAuth for user registration, managed privacy settings, and enhanced frontend with responsive design.</p>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <div class="project-content">
                         <h3>Backend Developer</h3>
                         <h4>Experis Academy</h4>
                         <span class="timeline-date">Feb 2023 - Mar 2023</span>
@@ -286,9 +291,11 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-content">
                         <h3>Full-Stack Developer Intern</h3>
                         <h4>Hexa Studio</h4>
                         <span class="timeline-date">Jan 2022 - Jun 2022</span>
@@ -296,6 +303,7 @@
                     </div>
                 </div>
             </div>
+            <button class="show-more-btn" id="show-more-experience">Show More Details</button>
         </div>
     </section>
 

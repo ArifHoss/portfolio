@@ -317,3 +317,176 @@ loadingStyles.textContent = `
     }
 `;
 document.head.appendChild(loadingStyles);
+
+// Show More/Less functionality for sections
+document.addEventListener('DOMContentLoaded', () => {
+    // Projects section
+    const projectsGrid = document.getElementById('projects-grid');
+    const showMoreProjectsBtn = document.getElementById('show-more-projects');
+
+    if (showMoreProjectsBtn && projectsGrid) {
+        // Initially show only first 2 projects
+        const projectCards = projectsGrid.querySelectorAll('.project-card');
+        if (projectCards.length > 2) {
+            for (let i = 2; i < projectCards.length; i++) {
+                projectCards[i].style.display = 'none';
+            }
+        }
+
+        showMoreProjectsBtn.addEventListener('click', () => {
+            const hiddenCards = projectsGrid.querySelectorAll('.project-card[style*="display: none"]');
+            if (hiddenCards.length > 0) {
+                // Show more projects
+                hiddenCards.forEach(card => {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeInUp 0.6s ease-out';
+                });
+                showMoreProjectsBtn.textContent = 'Show Less';
+            } else {
+                // Hide extra projects
+                for (let i = 2; i < projectCards.length; i++) {
+                    projectCards[i].style.display = 'none';
+                }
+                showMoreProjectsBtn.textContent = 'Show More Projects';
+            }
+        });
+    }
+
+    // Education section
+    const educationGrid = document.getElementById('education-grid');
+    const showMoreEducationBtn = document.getElementById('show-more-education');
+
+    if (showMoreEducationBtn && educationGrid) {
+        // Store original content
+        const educationCards = educationGrid.querySelectorAll('.project-card');
+        const originalContents = Array.from(educationCards).map(card => card.innerHTML);
+
+        // Create detailed content
+        const detailedContents = [
+            `<div class="project-image">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="project-content">
+                <h3>Engineer's Degree, Frontend Developer</h3>
+                <h4>IT-Högskolan</h4>
+                <span class="timeline-date">Aug 2024 - Jul 2026</span>
+                <p>Currently pursuing a comprehensive frontend developer course covering HTML, CSS, JavaScript, UX/UI design, Vue.js, React.js, Node.js, and Agile development. Developing skills in building component-based web applications, managing state (Vuex, Context API, Redux), and implementing routing (Vue Router, React Router). Gaining experience in full stack development, designing databases, handling CRUD operations, and ensuring data integrity. Proficient in working with CMS platforms (WordPress, Drupal), Headless CMS integration, and PHP-based customization. Building expertise in UX/UI design with a focus on user-friendly, accessible solutions.</p>
+                <div class="education-skills">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Vue.js</span>
+                    <span class="skill-tag">React.js</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">UX/UI Design</span>
+                    <span class="skill-tag">WordPress</span>
+                </div>
+            </div>`,
+            `<div class="project-image">
+                <i class="fas fa-code"></i>
+            </div>
+            <div class="project-content">
+                <h3>Engineer's Degree, Full Stack Java Developer</h3>
+                <h4>IT-Högskolan</h4>
+                <span class="timeline-date">Nov 2020 - Nov 2022</span>
+                <p>Completed a full-stack Java developer program covering Java programming, tools, and environments, database development, web services and integration, web application development, Agile methodologies, Clean Code practices, and testing. Developed advanced skills in complex Java programming, utilizing Java EE, Spring, and Spring Boot. Gained hands-on experience with build and deployment tools like Maven, Docker, and Jenkins, as well as databases such as MySQL and PostgreSQL. Successfully completed two internships (LIA1, LIA2), applying acquired skills in real-world development environments.</p>
+                <div class="education-skills">
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Spring Boot</span>
+                    <span class="skill-tag">Microservices</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">TDD</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                </div>
+            </div>`
+        ];
+
+        showMoreEducationBtn.addEventListener('click', () => {
+            if (showMoreEducationBtn.textContent === 'Show More Details') {
+                // Show detailed content
+                educationCards.forEach((card, index) => {
+                    card.innerHTML = detailedContents[index];
+                    card.style.animation = 'fadeInUp 0.6s ease-out';
+                });
+                showMoreEducationBtn.textContent = 'Show Less';
+            } else {
+                // Show summary content
+                educationCards.forEach((card, index) => {
+                    card.innerHTML = originalContents[index];
+                    card.style.animation = 'fadeInUp 0.6s ease-out';
+                });
+                showMoreEducationBtn.textContent = 'Show More Details';
+            }
+        });
+    }
+
+    // Experience section
+    const experienceGrid = document.getElementById('experience-grid');
+    const showMoreExperienceBtn = document.getElementById('show-more-experience');
+
+    if (showMoreExperienceBtn && experienceGrid) {
+        // Store original content
+        const experienceCards = experienceGrid.querySelectorAll('.project-card');
+        const originalContents = Array.from(experienceCards).map(card => card.innerHTML);
+
+        // Create detailed content
+        const detailedContents = [
+            `<div class="project-image">
+                <i class="fas fa-tv"></i>
+            </div>
+            <div class="project-content">
+                <h3>Full-Stack Developer Intern</h3>
+                <h4>SVT (Sveriges Television)</h4>
+                <span class="timeline-date">Aug 2024 - May 2025</span>
+                <p>Developing enterprise-level Swedish Media Annotation Platform with microservices architecture. Implementing complex database relationships with PostgreSQL and JPA/Hibernate, building RESTful APIs with Spring Boot 3.5, and creating React 19/TypeScript frontend with analytics dashboards. Features include automated speech recognition workflows, speaker demographic analysis, Word Error Rate calculations, and Docker containerization for scalable deployment.</p>
+            </div>`,
+            `<div class="project-image">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="project-content">
+                <h3>Full-Stack Developer</h3>
+                <h4>Experis Academy</h4>
+                <span class="timeline-date">Jan 2023 - Jun 2023</span>
+                <p>Developed "Project Lagalt" - a web platform for creative professionals using Java, Spring Boot, and React. Led backend development, integrated OAuth for user registration, managed privacy settings, and enhanced frontend with responsive design. Successfully presented to 47 developers and stakeholders.</p>
+            </div>`,
+            `<div class="project-image">
+                <i class="fas fa-film"></i>
+            </div>
+            <div class="project-content">
+                <h3>Backend Developer</h3>
+                <h4>Experis Academy</h4>
+                <span class="timeline-date">Feb 2023 - Mar 2023</span>
+                <p>Created "Movie Characters API" - a CRUD application with PostgreSQL and Hibernate. Focused on API development, testing, and documentation. Practiced pair programming and version control with Git in a 2-person team.</p>
+            </div>`,
+            `<div class="project-image">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="project-content">
+                <h3>Full-Stack Developer Intern</h3>
+                <h4>Hexa Studio</h4>
+                <span class="timeline-date">Jan 2022 - Jun 2022</span>
+                <p>Developed a mobile and web application for a recycling company. Built both backend and frontend using Java, Spring Boot, and ReactJS. Adapted to frequent project changes and maintained clean codebase for smooth collaboration in a 7-person team.</p>
+            </div>`
+        ];
+
+        showMoreExperienceBtn.addEventListener('click', () => {
+            if (showMoreExperienceBtn.textContent === 'Show More Details') {
+                // Show detailed content
+                experienceCards.forEach((card, index) => {
+                    card.innerHTML = detailedContents[index];
+                    card.style.animation = 'fadeInUp 0.6s ease-out';
+                });
+                showMoreExperienceBtn.textContent = 'Show Less';
+            } else {
+                // Show summary content
+                experienceCards.forEach((card, index) => {
+                    card.innerHTML = originalContents[index];
+                    card.style.animation = 'fadeInUp 0.6s ease-out';
+                });
+                showMoreExperienceBtn.textContent = 'Show More Details';
+            }
+        });
+    }
+});
