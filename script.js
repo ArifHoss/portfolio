@@ -7,11 +7,17 @@ hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-// Close mobile menu when clicking on a link
+// Close mobile menu when clicking on a link and update active state
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
+
+        // Update active state immediately when clicking
+        document.querySelectorAll('.nav-link').forEach(navLink => {
+            navLink.classList.remove('active');
+        });
+        link.classList.add('active');
     });
 });
 
@@ -58,13 +64,23 @@ window.addEventListener('scroll', () => {
     const navLinks = document.querySelectorAll('.nav-link');
 
     let current = '';
+    const navbarHeight = 70;
+
     sections.forEach(section => {
-        const sectionTop = section.offsetTop;
+        const sectionTop = section.offsetTop - navbarHeight;
         const sectionHeight = section.clientHeight;
-        if (window.scrollY >= (sectionTop - 200)) {
+        const scrollPosition = window.scrollY + navbarHeight;
+
+        // Check if current scroll position is within this section
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
             current = section.getAttribute('id');
         }
     });
+
+    // If we're at the very top, highlight home
+    if (window.scrollY < 100) {
+        current = 'home';
+    }
 
     navLinks.forEach(link => {
         link.classList.remove('active');

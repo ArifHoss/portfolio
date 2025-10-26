@@ -89,6 +89,16 @@ body {
     width: 100%;
 }
 
+.nav-link.active {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    width: 100%;
+    background: #1a1a1a;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
