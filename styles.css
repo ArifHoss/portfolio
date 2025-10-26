@@ -17,15 +17,15 @@ body {
 }
 
 .container {
-    /*background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-     padding: 2rem 0;
+    background: linear-gradient(135deg, #fafbfc 0%, #f1f3f4 100%);
+    padding: 2rem 0;
     margin-bottom: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.05); */
+    border: 1px solid rgba(0, 0, 0, 0.05);
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 2rem 20px;
 }
 
 /* Navigation */
